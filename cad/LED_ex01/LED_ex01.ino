@@ -14,9 +14,9 @@ void setup()
 //LED点滅関数
 void flash(int time)
 {
-  digitalWrite(LEDpin,HIGH);
+  digitalWrite(LEDpin, HIGH);
   delay(time);
-  digitalWrite(LEDpin,LOW);
+  digitalWrite(LEDpin, LOW);
   delay(time);
 }
 
@@ -24,9 +24,9 @@ void loop()
 {
   int PSW1 = digitalRead(PSWpin);
 
-  if(SSW==HIGH)
+  if (SSW == HIGH)
     flash(2000);
   else
-    digitalWrite(LEDpin,LOW);
-  PSW2=PSW1;
+    digitalWrite(LEDpin, LOW);
+  PSW2 = PSW1;
 }

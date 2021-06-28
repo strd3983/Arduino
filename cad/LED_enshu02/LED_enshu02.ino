@@ -11,14 +11,22 @@ void setup()
   pinMode(varR, OUTPUT);
 }
 
+//LED点滅関数
+void flash(int time)
+{
+  digitalWrite(LEDpin, HIGH);
+  delay(time);
+  digitalWrite(LEDpin, LOW);
+  delay(time);
+}
+
 void loop()
 {
-  int SSW=digitalRead(SSWpin);
+  int SSW = digitalRead(SSWpin);
   //int PSW=digitalRead(PSWpin);
 
-  if(SSW==HIGH)
-    digitalWrite(LEDpin,HIGH);
+  if (SSW == HIGH)
+    flash(2000);
   else
-    digitalWrite(LEDpin,LOW);
-
+    digitalWrite(LEDpin, LOW);
 }

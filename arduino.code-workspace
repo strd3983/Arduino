@@ -4,5 +4,8 @@
 			"path": "."
 		}
 	],
-	"settings": {}
+	"settings": {
+		"arduino.path": "G:\\Program Files\\Softare\\Free\\Arduino",
+		"C_Cpp.intelliSenseEngine": "Tag Parser",
+	}
 }
