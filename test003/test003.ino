@@ -21,9 +21,7 @@ void loop()
 void driveMotor(int mt)
 {
   if (mt > 255)
-  {
     mt = 255;
-  }
   else if (mt < -255)
   {
     mt = -255;
