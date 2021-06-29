@@ -1,32 +1,22 @@
 #define LEDpin 9
-#define SSWpin 4
 #define PSWpin 2
-#define varR A0
+int n = 0, PSW_old = HIGH;
 
 void setup()
 {
   pinMode(LEDpin, OUTPUT);
-  pinMode(SSWpin, INPUT);
   pinMode(PSWpin, INPUT);
-  pinMode(varR, OUTPUT);
-}
-
-//LED点滅関数
-void flash(int time)
-{
-  digitalWrite(LEDpin, HIGH);
-  delay(time);
-  digitalWrite(LEDpin, LOW);
-  delay(time);
 }
 
 void loop()
 {
-  int PSW1 = digitalRead(PSWpin);
-
-  if (SSW == HIGH)
-    flash(2000);
-  else
+  int PSW = digitalRead(PSWpin);
+  if (PSW_old == HIGH && PSW == LOW)
+    n += 1;
+  if (n == 0)
     digitalWrite(LEDpin, LOW);
-  PSW2 = PSW1;
+  else
+    digitalWrite(LEDpin, HIGH);
+  PSW_old = PSW;
+  n %= 2;
 }
