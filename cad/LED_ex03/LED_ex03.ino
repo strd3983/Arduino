@@ -1,12 +1,10 @@
 #define LEDpin 9
-#define SSWpin 4
 #define PSWpin 2
-#define varR A0
+#define varRpin A0
 
 void setup()
 {
   pinMode(LEDpin, OUTPUT);
-  pinMode(SSWpin, INPUT);
   pinMode(PSWpin, INPUT);
   pinMode(varRpin, OUTPUT);
   Serial.begin(9600);
@@ -27,7 +25,7 @@ void loop()
 {
   //プッシュスイッチが押されたとき割り込み
   attachInterrupt(0, ledISR, FALLING);
-  int varR = analogRead(varRpin);
+  double varR = analogRead(varRpin);
   Serial.print(varR);
   Serial.print("\t");
   Serial.println(n);

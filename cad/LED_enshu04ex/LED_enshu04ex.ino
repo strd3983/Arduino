@@ -1,19 +1,19 @@
 #define LEDpin 9
-#define SSWpin 4
-#define PSWpin 2
-#define varR A0
+#define varRpin A0
+#define CdSpin A1
+#define offset 120
 
 void setup()
 {
   pinMode(LEDpin, OUTPUT);
-  pinMode(SSWpin, INPUT);
-  pinMode(PSWpin, INPUT);
-  pinMode(varR, INPUT);
+  pinMode(CdSpin, INPUT);
 }
 
 void loop()
 {
-  int var = analogRead(varR);
-  analogWrite(LEDpin, var);
-  delay(2);
+  int CdS = analogRead(CdSpin) - 120;
+  if (255 < CdS)
+    CdS = 255;
+  analogWrite(LEDpin, CdS);
+  delay(100);
 }
